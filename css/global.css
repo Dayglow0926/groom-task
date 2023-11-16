@@ -15,4 +15,5 @@ body,
 html {
   font-size: 0.75vw;
   background-color: black;
+  overflow-x: hidden;
 }
