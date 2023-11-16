@@ -8,6 +8,11 @@
   top: 0;
   z-index: 10;
   padding: 0 4%;
+  transition: 0.2s linear background-color;
+}
+
+.header.active {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .header__logo {
