@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.button__new-todo-list {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px white solid;
+  font-weight: unset;
+  color: unset;
+  cursor: pointer;
+}

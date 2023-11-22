@@ -1,0 +1,13 @@
+html {
+  display: flex;
+  justify-content: center;
+}
+body {
+  background-color: rgb(199, 96, 147);
+  font-weight: 600;
+  width: 500px;
+}
+
+* {
+  box-sizing: border-box;
+}
