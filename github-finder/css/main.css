@@ -1,0 +1,134 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.search__form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  padding: 1rem;
+  gap: 10px;
+}
+
+.search__form > .search__form-title {
+  font-weight: 800;
+  font-size: 6vw;
+}
+
+.search__form > .search__form-description {
+  font-size: 3vw;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.search__form > .search__form-input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+/* ----------------------------------------------------------------- */
+
+.none {
+  display: none !important;
+}
+
+.user__profile {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  padding: 1rem;
+  gap: 32px;
+}
+
+.user__profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10rem;
+  gap: 8px;
+}
+
+.user__profile-left > .user__profile-img {
+  width: 100%;
+}
+
+.user__profile-left > .user__profile-img > img {
+  width: 100%;
+}
+
+.user__profile-left > a {
+  width: 100%;
+  background-color: rgb(62, 122, 232);
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 2vw;
+  padding: 10px 0px;
+  border-radius: 20px;
+}
+
+.user__profile-right {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  gap: 16px;
+}
+
+.user__profile-right > .user__profile-info-count {
+  display: flex;
+  gap: 3px;
+}
+
+.user__profile-right > .user__profile-info-count > div {
+  color: white;
+  font-size: 2vw;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.public-repos__count {
+  background-color: rgb(62, 122, 232);
+}
+
+.public-gists__count {
+  background-color: rgba(113, 114, 114, 0.641);
+}
+
+.followers__count {
+  background-color: rgb(2, 157, 12);
+}
+
+.following__count {
+  background-color: rgb(43, 194, 202);
+}
+
+.user__info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+  gap: 1px;
+}
+
+.user__info > div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  padding: 0px 1rem;
+  font-size: 12px;
+}
+
+/* ----------------------------------------------------------------- */
+
+.latest-repos {
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+  gap: 10px;
+}
+
+.latest-repos__title {
+  font-weight: 800;
+  font-size: 1.6rem;
+}
