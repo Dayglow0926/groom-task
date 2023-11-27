@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event-delegate</title>
+  </head>
+  <body>
+    <div id="target"></div>
+    <div id="buttons">
+      <button class="buttonClass">Click Me</button>
+      <button class="buttonClass">Click Me</button>
+    </div>
+    <script>
+      const buttonList = document.querySelector("#buttons");
+      buttons.addEventListener("click", () => alert("clicked"));
+
+      const button = document.createElement("button");
+      button.setAttribute("class", "buttonClass");
+      button.innerHTML = "Click Me";
+
+      buttonList.appendChild(button);
+    </script>
+  </body>
+</html>

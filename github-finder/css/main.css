@@ -13,11 +13,11 @@
 
 .search__form > .search__form-title {
   font-weight: 800;
-  font-size: 6vw;
+  font-size: 3vw;
 }
 
 .search__form > .search__form-description {
-  font-size: 3vw;
+  font-size: 1vw;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -61,7 +61,7 @@
   text-align: center;
   text-decoration: none;
   color: white;
-  font-size: 2vw;
+  font-size: 1vw;
   padding: 10px 0px;
   border-radius: 20px;
 }
@@ -80,7 +80,7 @@
 
 .user__profile-right > .user__profile-info-count > div {
   color: white;
-  font-size: 2vw;
+  font-size: 1vw;
   padding: 8px 12px;
   border-radius: 5px;
 }
@@ -88,17 +88,32 @@
 .public-repos__count {
   background-color: rgb(62, 122, 232);
 }
+.public-repos__count::before {
+  content: "Public repos :";
+}
 
 .public-gists__count {
   background-color: rgba(113, 114, 114, 0.641);
+}
+
+.public-gists__count::before {
+  content: "Public Gists :";
 }
 
 .followers__count {
   background-color: rgb(2, 157, 12);
 }
 
+.followers__count::before {
+  content: "Followers : ";
+}
+
 .following__count {
   background-color: rgb(43, 194, 202);
+}
+
+.following__count::before {
+  content: "Following : ";
 }
 
 .user__info {
@@ -119,6 +134,22 @@
   font-size: 12px;
 }
 
+.user__info-company::before {
+  content: "Company : ";
+}
+
+.user__info-blog::before {
+  content: "Website/blog : ";
+}
+
+.user__info-location::before {
+  content: "Location : ";
+}
+
+.user__info-since::before {
+  content: "Member Since : ";
+}
+
 /* ----------------------------------------------------------------- */
 
 .latest-repos {
@@ -131,4 +162,60 @@
 .latest-repos__title {
   font-weight: 800;
   font-size: 1.6rem;
+}
+.latest-repos__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.latest-repos__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  line-height: 1;
+  border-radius: 5px;
+}
+
+.latest-repos__item > a {
+  text-decoration: none;
+  color: rgb(94, 94, 242);
+  vertical-align: middle;
+  font-size: 1.6vw;
+}
+
+.latest-repos__item-other-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.latest-repos__item-other-info > div {
+  color: white;
+  font-size: 1vw;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.latest-repos__item-stars {
+  background-color: rgb(62, 122, 232);
+}
+.latest-repos__item-stars::before {
+  content: "Stars : ";
+}
+
+.latest-repos__item-watchers {
+  background-color: rgba(113, 114, 114, 0.641);
+}
+.latest-repos__item-watchers::before {
+  content: "Watchers : ";
+}
+
+.latest-repos__item-forks {
+  background-color: rgb(2, 157, 12);
+}
+.latest-repos__item-forks::before {
+  content: "Forks : ";
 }
