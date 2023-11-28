@@ -219,3 +219,52 @@
 .latest-repos__item-forks::before {
   content: "Forks : ";
 }
+
+/* spinner */
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner.none {
+  display: none;
+}
+.spinner__bg {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.spinner {
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  border: 2px solid #3563e9;
+  border-radius: 50%;
+  border-top: none;
+  border-right: none;
+  margin: 10rem auto;
+  animation: rotation 1s linear infinite;
+}
+
+/* 잔디 */
+.contribution__graph {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contribution__graph > img {
+  width: 80%;
+}

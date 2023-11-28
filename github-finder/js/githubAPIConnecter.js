@@ -70,6 +70,9 @@ class UserProfile {
   get following() {
     return this.data.following_url;
   }
+  get login() {
+    return this.data.login;
+  }
 
   async fetchURL(url) {
     url = url.replace(/\{.*?\}/g, "");
@@ -79,16 +82,27 @@ class UserProfile {
 }
 
 class ContributionGraph {
+  constructor() {
+    this.contributionGraph = document.querySelector(
+      ".contribution__graph > img"
+    );
+  }
   render(username) {
-    //잔디받 그리기 로직
+    //잔디밭 그리기 로직
+    this.contributionGraph.src = `https://ghchart.rshah.org/${username}`;
   }
 }
 class Spinner {
+  constructor() {
+    this.spinner = document.querySelector(".spinner__bg");
+  }
   show() {
     //스피너 표시
+    this.spinner.classList.remove("none");
   }
   hide() {
     //스피너 숨기기
+    this.spinner.classList.add("none");
   }
 }
 
@@ -96,6 +110,7 @@ class UIManager {
   constructor() {
     //UI 요소 초기화
     this.spinner = new Spinner();
+    this.contributionGraph = new ContributionGraph();
     this.userProfile = document.querySelector(".user__profile");
     this.latestRepos = document.querySelector(".latest-repos");
     this.avatar = document.querySelector(".user__profile-img > img");
@@ -113,10 +128,12 @@ class UIManager {
   displayHide() {
     this.userProfile.classList.add("none");
     this.latestRepos.classList.add("none");
+    this.spinner.show();
   }
   displayShow() {
     this.userProfile.classList.remove("none");
     this.latestRepos.classList.remove("none");
+    this.spinner.hide();
   }
   updateUserProfile(userProfile, fetchData) {
     this.avatar.src = userProfile.avatarUrl;
@@ -132,9 +149,12 @@ class UIManager {
 
     this.latestReposList.replaceChildren();
 
-    fetchData.repos.forEach((v) => {
-      this.latestReposItemAppend(v);
-    });
+    for (const index in fetchData.repos) {
+      if (index == 5) break;
+      this.latestReposItemAppend(fetchData.repos[index]);
+    }
+    console.log(userProfile);
+    this.contributionGraph.render(userProfile.login);
   }
 
   latestReposItemAppend(data) {
@@ -182,13 +202,12 @@ document
   .querySelector(".search__form-input")
   .addEventListener("keypress", async (event) => {
     if (event.key === "Enter") {
+      event.target.blur();
       uiManager.displayHide();
       try {
         const users = await api.searchUser(event.target.value);
 
         if (users.length <= 0) return uiManager.isNullItem();
-
-        console.log(users.length);
 
         const userProfile = new UserProfile(users[0]);
         const userDataManager = new UserDataManager(userProfile);
