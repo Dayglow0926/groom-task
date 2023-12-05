@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import List from "./components/List";
+import Lists from "./components/Lists";
 import Form from "./components/Form";
 
 function App() {
@@ -14,8 +14,7 @@ function App() {
         </div>
 
         <Form setToDoData={setToDoData} />
-
-        <List toDoData={toDoData} setToDoData={setToDoData} />
+        <Lists toDoData={toDoData} setToDoData={setToDoData} />
       </div>
     </div>
   );
