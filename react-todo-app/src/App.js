@@ -1,10 +1,18 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lists from "./components/Lists";
 import Form from "./components/Form";
 
+const initialTodoData = localStorage.getItem("todoData")
+  ? JSON.parse(localStorage.getItem("todoData"))
+  : [];
+
 function App() {
-  const [toDoData, setToDoData] = useState([]);
+  const [toDoData, setToDoData] = useState(initialTodoData);
+
+  useEffect(() => {
+    localStorage.setItem("todoData", JSON.stringify(toDoData));
+  }, [toDoData]);
 
   const handleDeleteAll = () => {
     setToDoData([]);
