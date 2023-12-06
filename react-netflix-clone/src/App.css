@@ -1,0 +1,7 @@
+.App {
+  background-color: #111;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
