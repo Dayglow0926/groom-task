@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/groom-task/react-netflix/static/css/main.be187a6e.css",
+    "main.js": "/groom-task/react-netflix/static/js/main.05fa2313.js",
+    "static/js/787.d7112c23.chunk.js": "/groom-task/react-netflix/static/js/787.d7112c23.chunk.js",
+    "static/media/netflix_logo.png": "/groom-task/react-netflix/static/media/netflix_logo.be3f8bc9cde418344968.png",
+    "index.html": "/groom-task/react-netflix/index.html",
+    "main.be187a6e.css.map": "/groom-task/react-netflix/static/css/main.be187a6e.css.map",
+    "main.05fa2313.js.map": "/groom-task/react-netflix/static/js/main.05fa2313.js.map",
+    "787.d7112c23.chunk.js.map": "/groom-task/react-netflix/static/js/787.d7112c23.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be187a6e.css",
+    "static/js/main.05fa2313.js"
+  ]
+}
