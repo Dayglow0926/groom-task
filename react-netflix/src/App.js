@@ -12,6 +12,7 @@ const Layout = () => {
       <Nav />
       <Outlet />
       <Footer />
+      현대백화점 무역센터점
     </>
   );
 };
