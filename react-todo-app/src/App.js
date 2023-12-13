@@ -6,6 +6,7 @@ import Form from "./components/Form";
 const initialTodoData = localStorage.getItem("expenses")
   ? JSON.parse(localStorage.getItem("expenses"))
   : [];
+let init = true;
 
 function App() {
   const [expenses, setExpenses] = useState(initialTodoData);
@@ -17,6 +18,11 @@ function App() {
   const [alertContent, setAlertContent] = useState("");
 
   useEffect(() => {
+    if (init) {
+      init = false;
+      return;
+    }
+
     if (length < expenses.length) {
       //생성
       setAlertColor("bg-green-500");
@@ -25,6 +31,9 @@ function App() {
       //삭제
       setAlertColor("bg-red-500");
       setAlertContent("아이템을 삭제하였습니다.");
+    } else {
+      setAlertColor("bg-green-500");
+      setAlertContent("아이템을 수정하였습니다.");
     }
 
     localStorage.setItem("expenses", JSON.stringify(expenses));
