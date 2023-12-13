@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import TargetInput from "./TargetInput";
 
 export default function Form({
@@ -59,7 +59,7 @@ export default function Form({
       <input
         className="p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-200 w-min cursor-pointer"
         type="submit"
-        value="제출 ->"
+        value={`${expensesId ? "수정 -> " : "제출 ->"}`}
       />
     </form>
   );
