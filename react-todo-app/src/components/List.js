@@ -3,101 +3,46 @@ import React, { useState } from "react";
 function List({
   id,
   title,
-  completed,
-  toDoData,
-  setToDoData,
+  pay,
+  expenses,
+  setExpenses,
   provided,
   snapshot,
+  setExpensesName,
+  setExpensesPay,
+  setExpensesId,
 }) {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(title);
-
-  const handleCompletedChange = (id) => {
-    let newTodoData = toDoData.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-
-      return data;
-    });
-
-    setToDoData(newTodoData);
-  };
-
   const handleClick = (id) => {
-    let newTodoData = toDoData.filter((data) => data.id !== id);
-    setToDoData(newTodoData);
+    let newTodoData = expenses.filter((data) => data.id !== id);
+    setExpenses(newTodoData);
   };
 
-  const handleEditChage = (e) => {
-    setEditedTitle(e.target.value);
+  const handleEditClick = () => {
+    setExpensesId(id);
+    setExpensesName(title);
+    setExpensesPay(pay);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let newTodoData = toDoData.map((data) => {
-      if (data.id === id) {
-        data.title = editedTitle;
-      }
-
-      return data;
-    });
-
-    setToDoData(newTodoData);
-    setIsEditing(false);
-  };
-
-  if (isEditing) {
-    return (
-      <div
-        className={`flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600 border rounded`}
-        key={id}
-      >
-        <div className="flex gap-4">
-          <form onSubmit={handleSubmit}>
-            <input
-              value={editedTitle}
-              className="w-full px-2 py-2 mr-4 text-gray-500 rounded"
-              onChange={handleEditChage}
-            />
-          </form>
-        </div>
-        <div className="flex gap-4">
-          <button type="submit" onClick={handleSubmit}>
-            save
-          </button>
-          <button onClick={() => setIsEditing(false)}>X</button>
-        </div>
+  return (
+    <div
+      className={`${
+        snapshot.isDragging ? " bg-gray-400" : "bg-gray-100"
+      } flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600 border rounded`}
+      key={id}
+      {...provided.draggableProps}
+      ref={provided.innerRef}
+      {...provided.dragHandleProps}
+    >
+      <div className="flex w-full gap-4 cursor-pointer justify-between">
+        <span className="w-1/2">{title}</span>
+        <span className="w-1/2">{pay}</span>
       </div>
-    );
-  } else {
-    return (
-      <div
-        className={`${
-          snapshot.isDragging ? " bg-gray-400" : "bg-gray-100"
-        } flex items-center justify-between w-full px-4 py-1 my-2 text-gray-600 border rounded`}
-        key={id}
-        {...provided.draggableProps}
-        ref={provided.innerRef}
-        {...provided.dragHandleProps}
-      >
-        <label className="flex gap-4 cursor-pointer">
-          <input
-            type="checkbox"
-            defaultChecked={completed}
-            onChange={() => handleCompletedChange(id)}
-          />
-          <span className={completed ? "line-through" : undefined} disabled>
-            {title}
-          </span>
-        </label>
-        <div className="flex gap-4">
-          <button onClick={() => setIsEditing(true)}>Edit</button>
-          <button onClick={() => handleClick(id)}>X</button>
-        </div>
+      <div className="flex gap-4">
+        <button onClick={handleEditClick}>Edit</button>
+        <button onClick={() => handleClick(id)}>X</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default List;
